@@ -1,6 +1,15 @@
-<%= @player1 %>
+<div>
+  <%= $game.player1.name %> vs. <%= $game.player2.name %>
+</div>
 
-vs.
-
-<%= @player2 %>
-<div id="p2-health-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100 %</div>
+<% if $game.current_player.name == $game.player1.name %>
+  <form action="/attack" method="post">
+    <input id="p2-health" name="p2_health" value="<%= $game.player2.hp %>" type="disabled">
+    <button type="submit" name="p2_attack">Attack P2</button>
+  </form>
+<% else %>
+  <form action="/attack" method="post">
+    <input id="p1-health" name="p1_health" value="<%= $game.player1.hp %>" type="disabled">
+    <button type="submit" name="p1_attack">Attack P1</button>
+  </form>
+<% end %>
