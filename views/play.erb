@@ -1,15 +1,27 @@
 <div>
-  <%= $game.player1.name %> vs. <%= $game.player2.name %>
+  <div>
+    <%= $game.player1.name %>
+    <form>
+      <label for="p1-health">P1 Health</label>
+      <input id="p1-health" name="p1_health" value="<%= $game.player1.hp %>" type="disabled">
+    </form>
+  </div>
+
+  <div>
+     KO
+  <div>
+
+  <div>
+    <%= $game.player2.name %>
+    <form>
+      <label for="p2-health">P2 Health</label>
+      <input id="p2-health" name="p2_health" value="<%= $game.player2.hp %>" type="disabled">
+    </form>
+  </div>
 </div>
 
-<% if $game.current_player.name == $game.player1.name %>
+<div>
   <form action="/attack" method="post">
-    <input id="p2-health" name="p2_health" value="<%= $game.player2.hp %>" type="disabled">
-    <button type="submit" name="p2_attack">Attack P2</button>
+    <button type="submit">Attack <%= $game.current_player.name %></button>
   </form>
-<% else %>
-  <form action="/attack" method="post">
-    <input id="p1-health" name="p1_health" value="<%= $game.player1.hp %>" type="disabled">
-    <button type="submit" name="p1_attack">Attack P1</button>
-  </form>
-<% end %>
+</div>

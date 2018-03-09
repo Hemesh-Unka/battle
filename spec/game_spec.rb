@@ -8,13 +8,13 @@ describe Game do
 
   describe '#player_1' do
     it 'expect p1 is set on initialize' do
-      expect(game.players[0]).to eq(fake_p1)
+      expect(game.player1).to eq(fake_p1)
     end
   end
 
   describe '#player_2' do
     it 'expect p2 is set on initialize' do
-      expect(game.players[1]).to eq(fake_p2)
+      expect(game.player2).to eq(fake_p2)
     end
   end
 
@@ -28,7 +28,7 @@ describe Game do
   describe '#swap' do
     it 'swaps to the next player' do
       game.swap
-      expect(game.current_player).to eq(fake_p2)
+      expect(game.current_player).to eq(fake_p1)
     end
   end
 end

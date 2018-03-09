@@ -18,11 +18,14 @@ class Battle < Sinatra::Base
     redirect '/play'
   end
 
-  post '/attack' do
-    p params
-    $game.attack($game.current_player)
+  get '/swap_players' do
     $game.swap
     redirect '/play'
+  end
+
+  post '/attack' do
+    $game.attack($game.current_player)
+    redirect '/swap_players'
   end
 
   run! if app_file == $0
