@@ -8,7 +8,7 @@
   </div>
 
   <div>
-     KO
+    KO
   <div>
 
   <div>
@@ -23,6 +23,9 @@
 <% if $game.game_over? %>
   <div>
     <h1><%= $game.current_player.name.upcase %> WINS!</h1>
+    <form action="/">
+        <input type="submit" value="Play Again">
+    </form>
   </div>
 <% else %>
   <div>

@@ -38,7 +38,7 @@ describe Game do
       expect(game.game_over?).to eq(true)
     end
 
-    it 'returns nill if nobody is winning' do
+    it 'returns nil if nobody is winning' do
       allow(fake_p1).to receive(:hp) { 100 }
       allow(fake_p2).to receive(:hp) { 100 }
 
