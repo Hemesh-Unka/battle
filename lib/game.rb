@@ -21,4 +21,12 @@ class Game
   def game_over?
     true if @player1.hp <= 0 || @player2.hp <= 0
   end
+
+  def self.create(p1, p2)
+    @game = Game.new(p1, p2)
+  end
+
+  def self.instance
+    @game
+  end
 end

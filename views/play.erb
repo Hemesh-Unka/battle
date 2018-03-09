@@ -1,9 +1,9 @@
 <div>
   <div>
-    <%= $game.player1.name %>
+    <%= @game.player1.name %>
     <form>
       <label for="p1-health">P1 Health</label>
-      <input id="p1-health" name="p1_health" value="<%= $game.player1.hp %>" type="disabled">
+      <input id="p1-health" name="p1_health" value="<%= @game.player1.hp %>" type="disabled">
     </form>
   </div>
 
@@ -12,17 +12,17 @@
   <div>
 
   <div>
-    <%= $game.player2.name %>
+    <%= @game.player2.name %>
     <form>
       <label for="p2-health">P2 Health</label>
-      <input id="p2-health" name="p2_health" value="<%= $game.player2.hp %>" type="disabled">
+      <input id="p2-health" name="p2_health" value="<%= @game.player2.hp %>" type="disabled">
     </form>
   </div>
 </div>
 
-<% if $game.game_over? %>
+<% if @game.game_over? %>
   <div>
-    <h1><%= $game.current_player.name.upcase %> WINS!</h1>
+    <h1><%= @game.current_player.name.upcase %> WINS!</h1>
     <form action="/">
         <input type="submit" value="Play Again">
     </form>
@@ -30,7 +30,7 @@
 <% else %>
   <div>
     <form action="/attack" method="post">
-      <button type="submit">Attack <%= $game.current_player.name %></button>
+      <button type="submit">Attack <%= @game.current_player.name %></button>
     </form>
   </div>
 <% end %>
