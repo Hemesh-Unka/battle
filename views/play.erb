@@ -20,8 +20,14 @@
   </div>
 </div>
 
-<div>
-  <form action="/attack" method="post">
-    <button type="submit">Attack <%= $game.current_player.name %></button>
-  </form>
-</div>
+<% if $game.game_over? %>
+  <div>
+    <h1><%= $game.current_player.name.upcase %> WINS!</h1>
+  </div>
+<% else %>
+  <div>
+    <form action="/attack" method="post">
+      <button type="submit">Attack <%= $game.current_player.name %></button>
+    </form>
+  </div>
+<% end %>

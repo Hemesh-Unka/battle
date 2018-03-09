@@ -31,4 +31,18 @@ describe Game do
       expect(game.current_player).to eq(fake_p1)
     end
   end
+
+  describe '#game_over' do
+    it 'checks if player1 wins' do
+      allow(fake_p1).to receive(:hp) { -10 }
+      expect(game.game_over?).to eq(true)
+    end
+
+    it 'returns nill if nobody is winning' do
+      allow(fake_p1).to receive(:hp) { 100 }
+      allow(fake_p2).to receive(:hp) { 100 }
+
+      expect(game.game_over?).to eq(nil)
+    end
+  end
 end
